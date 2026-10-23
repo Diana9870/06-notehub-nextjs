@@ -1,15 +1,17 @@
 "use client";
-export default function NoteDetailsError({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
+
+interface NoteDetailsErrorProps {
+  error: Error;
   reset: () => void;
-}) {
+}
+
+export default function NoteDetailsError({ error, reset }: NoteDetailsErrorProps) {
   return (
-    <main style={{ padding: 24 }}>
+    <div>
       <p>Could not fetch note details. {error.message}</p>
-      <button onClick={reset}>Try again</button>
-    </main>
+      <button type="button" onClick={reset}>
+        Try again
+      </button>
+    </div>
   );
 }
